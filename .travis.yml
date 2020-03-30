@@ -4,6 +4,15 @@ python:
   - 3.7
   - 3.8
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=ec7052c9b8c466b8730f4cf725607a16934f0a02d0cb8105dd2e5d4e5efe5dbb
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-netcgo-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 before_install:
   - pip install poetry
 
